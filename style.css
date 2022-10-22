@@ -1,0 +1,175 @@
+:root{
+    --clr-violet: hsl(257, 40%, 49%);
+    --crl-soft-magenta: hsl(300, 69%, 71%);
+    /* typography */
+    --ff-poppins: 'Poppins', sans-serif;
+    --ff-400: 'Open Sans', sans-serif;
+    --fw-400: 400;
+    --fw-600: 600;
+    --fs-heading: 20px;
+    --fs-paragraph: 16px;
+}
+/* css reseting rules */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+html, body {
+  height: 100%;
+}
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+/* Make images easier to work with */
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  /* Avoid text overflows */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/* styling the navugation bar mobile first approach*/
+body{
+    font-family: var(--ff-poppins);
+    font-size: var(--fs-paragraph);
+    font-weight: var(--fw-400);
+}
+nav{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: var(--crl-soft-magenta);
+}
+.logo-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#check{
+    display: none;
+}
+.bars{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15rem;
+    width: 30px;
+    height: 50px;
+    cursor: pointer;
+    
+}
+span{
+    display: block;
+    width: 100%;
+    height: 3px;
+    position: relative;
+    background-color: black;
+}
+span::before, span::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: black;
+    transition: all .3s ease-in-out;
+}
+span::before{
+    top: 10px;
+}
+span::after{
+    bottom: 10px;
+}
+figure{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+}
+
+ul{
+position: absolute;
+top: 50px;
+left: 0;
+right: 0;
+width: 0;
+display: none;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+gap: 1rem;
+padding: 1rem;
+background-color: var(--crl-soft-magenta);
+transition: all .1s ease-in-out;
+}
+ul li a{
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+#check:checked ~ ul{
+    display: flex;  
+    width: 100%;
+}
+#check:checked ~ section span::before{
+    transform: rotate(-45deg);
+    top: 0;
+}
+#check:checked ~ section span::after{
+    transform: rotate(45deg);
+    top: 0;
+    
+}
+#check:checked ~ section span{
+    background-color: transparent;
+}
+
+
+
+/* Desktop design styles */
+@media(min-width:980px){
+    /* navbar */
+    .bars{
+        display: none;
+    }
+    ul{
+        display: flex;
+        top: 0;
+        flex-direction: row;
+    }
+
+}
+
+
